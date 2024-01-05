@@ -15,7 +15,6 @@ function setUpCanvas(c, w, h) {
 	}
 }
 
-
 function toggleFade(elm, state, opaMax) {
 	if (state == 0) {
 		elm.style.opacity = "0";
@@ -30,8 +29,7 @@ function toggleFade(elm, state, opaMax) {
 	}
 }
 
-
-//HTML elements functions
+//Get DOM elements by using css selector
 function s(x) {
 	return document.querySelector(x)
 };
@@ -39,14 +37,17 @@ function s(x) {
 function css(elm, prop) {
 	return window.getComputedStyle(elm).getPropertyValue(prop);
 };
-//Strings functions
+
+//String function, convert to lowercase
 function small(x) {
 	return x.toLowerCase()
 };
 
+//String function, convert to uppercase
 function big(x) {
 	return x.toUpperCase()
 };
+
 
 function jsonS(x) {
 	return JSON.stringify(x);
@@ -57,7 +58,7 @@ function jsonP(x) {
 };
 
 
-//Maths functions
+//Maps one range of values to another
 function map_range(val, in_min, in_max, out_min, out_max) {
 	return (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

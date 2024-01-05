@@ -29,20 +29,17 @@ function resetDensity() {
 	density = String(og_density)
 };
 
-
 let ctrl = {
 	hideCam: false,
 	hasOverlay: false,
 }
-
 
 function hideCam(elm) {
 	if (!ctrl.hideCam) {
 		toggleFade(canvas, 0);
 		ctrl.hideCam = true;
 		elm.innerHTML = "Show Cam";
-		changeColor(elm, "#536DFE")
-
+		changeColor(elm, "#536DFE");
 	} else {
 		ctrl.hideCam = false;
 		elm.innerHTML = "Hide Cam"
@@ -64,20 +61,15 @@ function overlayCanvas(elm) {
 			canvas.style.transform = "none";
 			canvas.style.opacity = 1;
 			changeColor(elm, "#536DFE")
-
 		} else {
 			ctrl.hasOverlay = true;
 			elm.innerHTML = "Hide overlay";
 			canvas.style.opacity = 0.3;
 			changeColor(elm, "rgba( 244, 67, 54 ,1)")
-
 			canvas.style.transform = `scaleX(${window.innerWidth/cw}) scaleY(${window.innerHeight/ch})`;
 		}
 	}
 }
-
-
-
 
 let end = false;
 let start_once = false;
@@ -99,9 +91,9 @@ if (navigator.mediaDevices.getUserMedia) {
 
 
 function draw() {
-	if (end) {
+	if (end)
 		return false;
-	}
+		
 	ctx.clearRect(0, 0, cw, ch);
 	ctx.drawImage(video, data.x, data.y, data.w, data.h);
 	const pixels = ctx.getImageData(data.x, data.y, data.w, data.h);
